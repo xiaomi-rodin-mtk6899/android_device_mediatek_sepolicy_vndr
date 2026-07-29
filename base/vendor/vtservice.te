@@ -178,6 +178,7 @@ hal_client_domain(vtservice, hal_codec2)
 # Date: 2021/05/29
 # Operation: VT c2 for dmabuf heap
 allow vtservice dmabuf_system_heap_device:chr_file r_file_perms;
+allow vtservice dmabuf_system_secure_heap_device:chr_file r_file_perms_no_map;
 
 # Allow calls between vtservice and videotelephony AIDL
 hal_client_domain(vtservice, hal_mtk_videotelephony)
