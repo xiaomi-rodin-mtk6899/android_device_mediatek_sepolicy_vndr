@@ -225,3 +225,5 @@ set_prop(mediacodec, vendor_mtk_wfd_enable_prop)
 
 #allow get mtk_sec_video_path_support
 get_prop(mediacodec, vendor_mtk_sec_video_path_support_prop)
+
+allow mediacodec dmabuf_system_heap_device:chr_file r_file_perms;
