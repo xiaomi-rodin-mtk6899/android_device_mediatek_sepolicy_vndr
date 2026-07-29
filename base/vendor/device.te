@@ -277,6 +277,8 @@ type connsys_gnss_block_device, dev_type;
 type pvmfw_block_device, dev_type;
 type rotfw_block_device, dev_type;
 type ise_block_device, dev_type;
+type dmabuf_mtk_slc_heap_device, dev_type, dmabuf_heap_device_type;
+type dmabuf_mtk_sapu_page_device, dev_type, dmabuf_heap_device_type;
 
 ##########################
 # Sensor common Devices Start
