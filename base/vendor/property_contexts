@@ -818,3 +818,9 @@ vendor.dynamic_sensor. u:object_r:vendor_dynamic_sensor_prop:s0
 
 # iSE
 vendor.mtk.ise. u:object_r:vendor_mtk_ise_prop:s0
+
+# MediaTek HWC Property mappings
+vendor.mtk.hwc.                                  u:object_r:vendor_mtk_hwc_prop:s0
+ro.vendor.mtk_hwc_dsi_switch                     u:object_r:vendor_mtk_hwc_dsi_switch_prop:s0
+persist.vendor.hwcomposer.boot_display_config.   u:object_r:vendor_mtk_hwc_boot_display_config_prop:s0
+vendor.debug.sf.kickidle.                        u:object_r:vendor_mtk_debug_sf_kickidle_prop:s0
