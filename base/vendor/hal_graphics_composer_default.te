@@ -137,3 +137,12 @@ get_prop(hal_graphics_composer_default, vendor_mtk_backlight_ro_prop)
 
 # Allow composer to get MML PQ support
 get_prop(hal_graphics_composer_default, vendor_mtk_mml_support_prop)
+
+# Allow hal_graphics_composer_default to read properties
+get_prop(hal_graphics_composer_default, vendor_mtk_hwc_prop)
+get_prop(hal_graphics_composer_default, vendor_mtk_hwc_dsi_switch_prop)
+
+# Allow hal_graphics_composer_default to set (which includes read) properties
+set_prop(hal_graphics_composer_default, vendor_mtk_hwc_boot_display_config_prop)
+set_prop(hal_graphics_composer_default, vendor_mtk_hwc_buffer_hint_prop)
+set_prop(hal_graphics_composer_default, vendor_mtk_debug_sf_kickidle_prop)
