@@ -156,3 +156,5 @@ allow platform_app volte_clientapi_ua:binder { call transfer };
 # Operation : eMBMS Migration
 # Purpose :allow EXPWAY middleware to access the socket
 allow platform_app radio:unix_stream_socket connectto;
+
+get_prop(platform_app, exported_system_prop)

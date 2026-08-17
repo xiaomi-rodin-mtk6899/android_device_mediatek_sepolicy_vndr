@@ -269,3 +269,8 @@ set_prop(vendor_init, vendor_mtk_hwc_prop)
 set_prop(vendor_init, vendor_mtk_hwc_dsi_switch_prop)
 set_prop(vendor_init, vendor_mtk_hwc_boot_display_config_prop)
 set_prop(vendor_init, vendor_mtk_debug_sf_kickidle_prop)
+
+get_prop(vendor_init, exported_system_prop)
+set_prop(vendor_init, exported_system_prop)
+set_prop(vendor_init, vendor_mtkcam_prop)
+
