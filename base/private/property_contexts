@@ -55,20 +55,8 @@ init.svc.emdlogger1 u:object_r:system_mtk_init_svc_emdlogger1_prop:s0
 persist.vendor.wlan.standalone.log        u:object_r:system_mtk_wifisa_log_prop:s0
 
 # mtk audio log and dump property
-vendor.af.mixer.pcm           u:object_r:system_mtk_audio_prop:s0
-vendor.af.track.pcm           u:object_r:system_mtk_audio_prop:s0
-vendor.af.offload.write.raw   u:object_r:system_mtk_audio_prop:s0
-vendor.af.resampler.pcm       u:object_r:system_mtk_audio_prop:s0
-vendor.af.mixer.end.pcm       u:object_r:system_mtk_audio_prop:s0
-vendor.af.record.dump.pcm     u:object_r:system_mtk_audio_prop:s0
-vendor.af.effect.pcm          u:object_r:system_mtk_audio_prop:s0
-vendor.af.mixer.drc.pcm       u:object_r:system_mtk_audio_prop:s0
-vendor.af.dumplog             u:object_r:system_mtk_audio_prop:s0
+vendor.af.                    u:object_r:system_mtk_audio_prop:s0
 vendor.aaudio.pcm             u:object_r:system_mtk_audio_prop:s0
-vendor.af.audioflinger.log    u:object_r:system_mtk_audio_prop:s0
-vendor.af.track.log           u:object_r:system_mtk_audio_prop:s0
-vendor.af.policy.debug        u:object_r:system_mtk_audio_prop:s0
-vendor.af.audioserver.restart u:object_r:system_mtk_audio_prop:s0
 
 # mtk display driver log property
 vendor.debug.sf.log_repaint      u:object_r:system_mtk_sf_debug_prop:s0
