@@ -26,5 +26,5 @@ allow emcamera_app sensorservice_service:service_manager find;
 # Date: WK1931
 # Purpose:  set em camera properties
 set_prop(emcamera_app, vendor_mtk_em_prop)
-set_prop(emcamera_app, vendor_mtk_emcamera_prop)
+set_prop(emcamera_app, vendor_mtkcam_prop)
 set_prop(emcamera_app, vendor_mtk_mediatek_prop)

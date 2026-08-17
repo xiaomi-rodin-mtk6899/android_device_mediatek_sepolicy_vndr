@@ -161,7 +161,7 @@ vendor_restricted_prop(vendor_mtk_drm_fwd_lock_only_prop)
 vendor_restricted_prop(vendor_mtk_duraspeed_prop)
 vendor_restricted_prop(vendor_mtk_dx_hdcp_support_prop)
 vendor_restricted_prop(vendor_mtk_dynims_prop)
-vendor_restricted_prop(vendor_mtk_emcamera_prop)
+vendor_restricted_prop(vendor_mtkcam_prop)
 vendor_restricted_prop(vendor_mtk_extsim_prop)
 vendor_restricted_prop(vendor_mtk_fd_support_prop)
 vendor_restricted_prop(vendor_mtk_gallery_prop)
@@ -364,7 +364,7 @@ typeattribute vendor_mtk_drm_fwd_lock_only_prop       mtk_core_property_type;
 typeattribute vendor_mtk_duraspeed_prop               mtk_core_property_type;
 typeattribute vendor_mtk_dx_hdcp_support_prop         mtk_core_property_type;
 typeattribute vendor_mtk_dynims_prop                  mtk_core_property_type;
-typeattribute vendor_mtk_emcamera_prop                mtk_core_property_type;
+typeattribute vendor_mtkcam_prop                      mtk_core_property_type;
 typeattribute vendor_mtk_extsim_prop                  mtk_core_property_type;
 typeattribute vendor_mtk_fd_support_prop              mtk_core_property_type;
 typeattribute vendor_mtk_gallery_prop                 mtk_core_property_type;

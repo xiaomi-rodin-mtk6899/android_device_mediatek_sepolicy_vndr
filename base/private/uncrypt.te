@@ -3,3 +3,6 @@
 # ==============================================
 
 allow uncrypt uncrypt:capability fowner;
+
+get_prop(uncrypt, exported_system_prop)
+set_prop(uncrypt, exported_system_prop)

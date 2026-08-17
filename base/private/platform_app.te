@@ -151,3 +151,7 @@ get_prop(platform_app, system_mtk_common_data_prop)
 # VoNR : 2021/11/26
 # Purpose : allow to setprop persist.vendor.dbg.vonr_ui_ovr
 set_prop(platform_app,system_mtk_dbg_ims_prop);
+
+get_prop(platform_app, exported_system_prop)
+set_prop(platform_app, exported_system_prop)
+
