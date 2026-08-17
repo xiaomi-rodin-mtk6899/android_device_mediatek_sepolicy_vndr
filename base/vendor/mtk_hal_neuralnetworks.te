@@ -91,3 +91,5 @@ set_prop(mtk_hal_neuralnetworks, vendor_mtk_apuware_debug_prop)
 # Date : 2021/09/10
 # Purpose: Allow Neuron Hidl read data
 allow mtk_hal_neuralnetworks media_rw_data_file:file {read map};
+
+allow mtk_hal_neuralnetworks vendor_camera_dump_file:file create_file_perms;
