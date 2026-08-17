@@ -111,3 +111,6 @@
 
 # Audio parameter parser
 /(system_ext|system/system_ext)/bin/hw/android\.hardware\.audio\.parameter_parser\.service    u:object_r:audio_vendor_parameter_parser_exec:s0
+
+/dev/block/zram0       u:object_r:swap_block_device:s0
+/dev/metis          u:object_r:mitee_client_device:s0
