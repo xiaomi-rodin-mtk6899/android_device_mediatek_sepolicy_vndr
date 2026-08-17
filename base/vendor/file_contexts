@@ -248,22 +248,25 @@
 /dev/logo(/.*)?         u:object_r:logo_device:s0
 /dev/loop-control(/.*)? u:object_r:loop-control_device:s0
 
-/dev/dma_heap/mtk_mm                      u:object_r:dmabuf_system_heap_device:s0
-/dev/dma_heap/mtk_mm-uncached             u:object_r:dmabuf_system_heap_device:s0
-/dev/dma_heap/mtk_svp_page-uncached                 u:object_r:dmabuf_system_secure_heap_device:s0
-/dev/dma_heap/mtk_prot_page-uncached                u:object_r:dmabuf_system_secure_heap_device:s0
+/dev/dma_heap/mtk_mm                                u:object_r:dmabuf_system_heap_device:s0
+/dev/dma_heap/mtk_mm-uncached                       u:object_r:dmabuf_system_heap_device:s0
+/dev/dma_heap/mtk_mm-coherent                       u:object_r:dmabuf_system_heap_device:s0
+/dev/dma_heap/mtk_svp                               u:object_r:dmabuf_system_secure_heap_device:s0
+/dev/dma_heap/mtk_svp_wfd                           u:object_r:dmabuf_system_secure_heap_device:s0
 /dev/dma_heap/mtk_svp_region                        u:object_r:dmabuf_system_secure_heap_device:s0
-/dev/dma_heap/mtk_svp_region-aligned                u:object_r:dmabuf_system_secure_heap_device:s0
-/dev/dma_heap/mtk_prot_region                       u:object_r:dmabuf_system_secure_heap_device:s0
-/dev/dma_heap/mtk_prot_region-aligned               u:object_r:dmabuf_system_secure_heap_device:s0
-/dev/dma_heap/mtk_2d_fr_region                      u:object_r:dmabuf_system_secure_heap_device:s0
-/dev/dma_heap/mtk_2d_fr_region-aligned              u:object_r:dmabuf_system_secure_heap_device:s0
 /dev/dma_heap/mtk_wfd_region                        u:object_r:dmabuf_system_secure_heap_device:s0
-/dev/dma_heap/mtk_wfd_region-aligned                u:object_r:dmabuf_system_secure_heap_device:s0
+/dev/dma_heap/mtk_prot_region                       u:object_r:dmabuf_system_secure_heap_device:s0
+/dev/dma_heap/mtk_2d_fr_region                      u:object_r:dmabuf_system_secure_heap_device:s0
+/dev/dma_heap/mtk_svp_page-uncached                 u:object_r:dmabuf_system_secure_heap_device:s0
 /dev/dma_heap/mtk_wfd_page-uncached                 u:object_r:dmabuf_system_secure_heap_device:s0
+/dev/dma_heap/mtk_prot_page-uncached                u:object_r:dmabuf_system_secure_heap_device:s0
+/dev/dma_heap/mtk_svp_region-aligned                u:object_r:dmabuf_system_secure_heap_device:s0
+/dev/dma_heap/mtk_wfd_region-aligned                u:object_r:dmabuf_system_secure_heap_device:s0
+/dev/dma_heap/mtk_prot_region-aligned               u:object_r:dmabuf_system_secure_heap_device:s0
+/dev/dma_heap/mtk_2d_fr_region-aligned              u:object_r:dmabuf_system_secure_heap_device:s0
 /dev/dma_heap/mtk_sapu_data_shm_region              u:object_r:dmabuf_system_secure_heap_device:s0
-/dev/dma_heap/mtk_sapu_data_shm_region-aligned      u:object_r:dmabuf_system_secure_heap_device:s0
 /dev/dma_heap/mtk_sapu_engine_shm_region            u:object_r:dmabuf_system_secure_heap_device:s0
+/dev/dma_heap/mtk_sapu_data_shm_region-aligned      u:object_r:dmabuf_system_secure_heap_device:s0
 /dev/dma_heap/mtk_sapu_engine_shm_region-aligned    u:object_r:dmabuf_system_secure_heap_device:s0
 
 /dev/M4U_device(/.*)? u:object_r:M4U_device_device:s0
@@ -274,6 +277,7 @@
 
 /dev/scp(/.*)?   u:object_r:scp_device:s0
 /dev/scp_B(/.*)? u:object_r:scp_device:s0
+/dev/scp_chre_manager u:object_r:scp_device:s0
 /dev/sspm(/.*)?  u:object_r:sspm_device:s0
 /dev/vcp(/.*)?   u:object_r:vcp_device:s0
 
@@ -296,6 +300,7 @@
 /dev/st54spi u:object_r:st54spi_device:s0
 
 /dev/nq-nci    u:object_r:nfc_device:s0
+/dev/nxp-nci   u:object_r:nfc_device:s0
 /dev/p73       u:object_r:nfc_device:s0
 
 /dev/sec-nfc   u:object_r:nfc_device:s0
@@ -700,6 +705,10 @@
 /dev/block/by-name/init_boot(_[ab])?                u:object_r:boot_block_device:s0
 /dev/block/by-name/modem(_[ab])?                    u:object_r:md_block_device:s0
 /dev/block/by-name/pvmfw(_[ab])?                    u:object_r:pvmfw_block_device:s0
+/dev/block/by-name/rotfw(_[ab])?                    u:object_r:rotfw_block_device:s0
+/dev/block/by-name/rot_boot_fw(_[ab])?              u:object_r:rotfw_block_device:s0
+/dev/block/by-name/rot_boot_fmc(_[ab])?             u:object_r:rotfw_block_device:s0
+/dev/block/by-name/ise(_[ab])?                      u:object_r:ise_block_device:s0
 
 # W19.23 Q new feature - Userdata Checkpoint
 /dev/block/by-name/md_udc u:object_r:metadata_block_device:s0
@@ -846,6 +855,8 @@
 /(vendor|system/vendor)/bin/hw/android\.hardware\.audio\.effect\.service-aidl\.mediatek     u:object_r:hal_audio_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.bluetooth@1\.[0-9]-service-mediatek       u:object_r:mtk_hal_bluetooth_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.bluetooth-service\.mediatek               u:object_r:mtk_hal_bluetooth_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.bluetooth\.finder-service-mediatek        u:object_r:mtk_hal_bluetooth_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.bluetooth\.ranging-service\.mediatek      u:object_r:mtk_hal_bluetooth_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.gnss@2\.1-service-mediatek                u:object_r:hal_gnss_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.gnss-service\.mediatek                    u:object_r:hal_gnss_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.mediatek\.hardware\.mtkpower@1\.0-service            u:object_r:mtk_hal_power_exec:s0
@@ -862,12 +873,13 @@
 /(vendor|system/vendor)/bin/hw/android\.hardware\.vibrator@1\.0-service-mediatek-lazy       u:object_r:hal_vibrator_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.vibrator-service\.example                 u:object_r:hal_vibrator_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.vibrator-service\.mediatek                u:object_r:hal_vibrator_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.qti\.hardware\.vibrator\.service                     u:object_r:hal_vibrator_default_exec:s0
 /(vendor|system/vendor)/bin/hw/camerahalserver                                              u:object_r:mtk_hal_camera_exec:s0
 /(vendor|system/vendor)/bin/hw/mt[0-9]+[a-z]*/camerahalserver                               u:object_r:mtk_hal_camera_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.mediatek\.hardware\.imsa@1\.0-service                u:object_r:mtk_hal_imsa_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.graphics\.allocator@4\.0-service-mediatek u:object_r:hal_graphics_allocator_default_exec:s0
 /(vendor|system/vendor)/bin/hw/mt[0-9]+[a-z]*/android\.hardware\.graphics\.allocator@4\.0-service-mediatek\.mt[0-9]+[a-z]* u:object_r:hal_graphics_allocator_default_exec:s0
-/(vendor|system/vendor)/bin/hw/mt[0-9]+[a-z]*/android\.hardware\.graphics\.allocator-V[0-9]+-service-mediatek\.mt[0-9]+[a-z]* u:object_r:hal_graphics_allocator_default_exec:s0
+/(vendor|system/vendor)/bin/hw/(mt[0-9]+[a-z]*/)?android\.hardware\.graphics\.allocator-V[0-9]+-service-mediatek(\.mt[0-9]+[a-z]*)? u:object_r:hal_graphics_allocator_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.media\.c2@1\.2-mediatek                   u:object_r:mtk_hal_c2_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.media\.c2@1\.2-mediatek-64b               u:object_r:mtk_hal_c2_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.media\.c2-mediatek-64b                    u:object_r:mtk_hal_c2_exec:s0
@@ -888,6 +900,7 @@
 
 # Trustonic TEE
 /(vendor|system/vendor)/bin/hw/android\.hardware\.security\.keymint(@[0-9]+\.0+)?-service\.trustonic(_norkp)? u:object_r:hal_keymint_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.security\.secretkeeper@1\.0-service\.trustonic              u:object_r:hal_secretkeeper_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.gatekeeper-service\.trustonic u:object_r:hal_gatekeeper_default_exec:s0
 
 # Trustkernel
@@ -914,7 +927,9 @@
 /dev/metis          u:object_r:mitee_client_device:s0
 /dev/tee0           u:object_r:mitee_client_device:s0
 /dev/teepriv0       u:object_r:mitee_client_device:s0
-/dev/ufs-bsg0       u:object_r:mitee_client_device:s0
+
+# UFS
+/dev/ufs-bsg0       u:object_r:ufs_bsg_device:s0
 
 # NXP StrongBox
 /(vendor|system/vendor)/bin/hw/android\.hardware\.security\.keymint-service\.strongbox\.nxp     u:object_r:hal_keymint_default_exec:s0
@@ -937,7 +952,7 @@
 /(vendor|system/vendor)/bin/hw/vendor\.mediatek\.hardware\.mmlpq@V1-service u:object_r:mtk_hal_mmlpq_exec:s0
 
 # MMS hal
-/(vendor|system/vendor)/bin/hw/vendor\.mediatek\.hardware\.mms@1\.[0-9]-service u:object_r:mtk_hal_mms_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.mediatek\.hardware\.mms(@1\.[0-9])?-service u:object_r:mtk_hal_mms_exec:s0
 
 #MMAgent hal
 /(vendor|system/vendor)/bin/hw/vendor\.mediatek\.hardware\.mmagent@[0-9]+\.[0-9]+-service u:object_r:mtk_hal_mmagent_exec:s0
@@ -1002,6 +1017,7 @@
 # Operation: R migration
 # Purpose: Add permission for boot control lazy HAL
 /vendor/bin/hw/android\.hardware\.boot@[0-9]+\.[0-9]+-service-lazy u:object_r:hal_bootctl_default_exec:s0
+/vendor/bin/hw/android\.hardware\.boot-service.mediatek            u:object_r:hal_bootctl_default_exec:s0
 
 # Date: 2020/09/25
 # Purpose: kernel modules
@@ -1011,7 +1027,7 @@
 /vendor/bin/chipinfo u:object_r:chipinfo_exec:s0
 
 /vendor/bin/vpud             u:object_r:vpud_native_exec:s0
-/vendor/bin(/mt[0-9]+)?/v3avpud(\.mt[0-9]+)? u:object_r:vpud_native_exec:s0
+/vendor/bin(/mt[0-9]+)?/v3avpud(\.mt[0-9]+|-64b)? u:object_r:vpud_native_exec:s0
 
 # EARA-IO
 /vendor/bin/eara_io_service u:object_r:eara_io_exec:s0
@@ -1024,7 +1040,7 @@
 
 # Data : 2020/12/30
 # Purpose : DBReleasePlan
-/vendor/bin/crossbuild(/.*)? u:object_r:vendor_bin_crossbuild_file:s0
+/(odm|vendor/odm|vendor)/bin/crossbuild(/.*)? u:object_r:vendor_bin_crossbuild_file:s0
 
 # TrustKernel add
 /(vendor|system/vendor)/bin/hw/android\.hardware\.keymaster@4\.0-service\.trustkernel u:object_r:hal_keymaster_default_exec:s0
@@ -1038,7 +1054,7 @@
 # Trustonic TEE system files
 /(vendor|system/vendor)/app/mcRegistry(/.*)?                       u:object_r:mobicore_vendor_file:s0
 /(vendor|system/vendor)/bin/mcDriverDaemon                         u:object_r:mobicore_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.trustonic\.tee@1\.1-service u:object_r:hal_tee_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.trustonic\.tee(@1\.1)?-service u:object_r:hal_tee_default_exec:s0
 
 /(vendor|system/vendor)/bin/thermal                                               u:object_r:thermal_exec:s0
 /(vendor|system/vendor)/bin/volte_rcs_ua                                          u:object_r:volte_rcs_ua_exec:s0
@@ -1122,6 +1138,7 @@
 /(vendor|system/vendor)/bin/hw/android\.hardware\.neuralnetworks@1\.3-service-mtk-neuron-debug-lazy u:object_r:mtk_hal_neuralnetworks_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.neuralnetworks-shim-service-mtk                   u:object_r:mtk_hal_neuralnetworks_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.neuralnetworks-shell-service-mtk                  u:object_r:mtk_hal_neuralnetworks_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.mediatek\.hardware\.neuropilot\.neuronservice\.neuronservice\.mediatek                  u:object_r:mtk_hal_neuralnetworks_exec:s0
 
 # MTK nwk opt hal
 /(vendor|system/vendor)/bin/hw/vendor\.mediatek\.hardware\.nwk_opt@1\.0-service u:object_r:mtk_hal_nwk_opt_exec:s0
@@ -1248,10 +1265,11 @@
 /vendor/lib(64)?/hw/mt[0-9]+[a-z]*/android\.hardware\.graphics\.allocator@4\.0-impl-mediatek\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/hw/android\.hardware\.graphics\.mapper@2\.0-impl-2\.1\.so     u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/hw/android\.hardware\.graphics\.mapper@4\.0-impl-mediatek\.so u:object_r:same_process_hal_file:s0
-/vendor/lib(64)?/hw/mt[0-9]+[a-z]*/android\.hardware\.graphics\.mapper@4\.0-impl-mediatek\.so u:object_r:same_process_hal_file:s0
-/vendor/lib(64)?/hw/mt[0-9]+[a-z]*/mapper\.mediatek\.so                                       u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/hw/(mt[0-9]+[a-z]*/)?android\.hardware\.graphics\.mapper@4\.0-impl-mediatek\.so u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/hw/(mt[0-9]+[a-z]*/)?mapper\.mediatek\.so                                       u:object_r:same_process_hal_file:s0
 
 /vendor/lib(64)?/vendor\.mediatek\.hardware\.mms@[0-9]\.[0-9]\.so u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/vendor\.mediatek\.hardware\.mms-V[0-9]+-ndk\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/vendor\.mediatek\.hardware\.mmlpq@V[0-9]\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/vendor\.mediatek\.hardware\.mmlpq-V[0-9]+-ndk\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libdpframework\.so                               u:object_r:same_process_hal_file:s0
@@ -1263,13 +1281,16 @@
 /vendor/lib(64)?/vendor\.mediatek\.hardware\.pq_aidl-V[0-9]+-ndk\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libpq_prot\.so                                   u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/mt[0-9]+[a-z]*/libpq_prot\.so                    u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/mt[0-9]+[a-z]*/libpq_sec\.so                     u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libhdrvideo\.so                                  u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libscltm\.so                                     u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libaal_mtk\.so                                   u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/mt[0-9]+[a-z]*/libmml\.so                        u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libmmlpqImpl\.so                                  u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libpqhdrmetaparser\.so                           u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libpqsharememory\.so                             u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libpqtuning\.so                                  u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/libsdrparser\.so                                 u:object_r:same_process_hal_file:s0
 
 /vendor/lib(64)?/vendor\.mediatek\.hardware\.mmagent@[0-9]\.[0-9]\.so                 u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/vendor\.mediatek\.hardware\.mmagent-V[0-9]+-ndk\.so  u:object_r:same_process_hal_file:s0
@@ -1432,3 +1453,10 @@
 /vendor/bin/hw/arm\.mali\.platform-service\.mediatek u:object_r:mtk_hal_mali_platform_default_exec:s0
 /vendor/bin/hw/mt[0-9]+[a-z]*/arm\.mali\.platform-service\.mediatek\.mt[0-9]+[a-z]* u:object_r:mtk_hal_mali_platform_default_exec:s0
 /vendor/bin/hw/mt[0-9]+[a-z]*/arm\.mali\.platform-service\.mediatek\.mt[0-9]+[a-z]*_r[0-9]+p[0-9]+ u:object_r:mtk_hal_mali_platform_default_exec:s0
+
+# Context Hub Runtime Environment
+/data/vendor/chre(/.*)?                                          u:object_r:chre_data_file:s0
+/vendor/bin/hw/android\.hardware\.contexthub-service\.tinysys    u:object_r:hal_contexthub_default_exec:s0
+
+# iSE app loader
+/(vendor|system/vendor)/bin/ise_apploader   u:object_r:ise_apploader_exec:s0

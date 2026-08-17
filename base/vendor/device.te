@@ -275,6 +275,8 @@ type connsys_bt_block_device, dev_type;
 type connsys_wifi_block_device, dev_type;
 type connsys_gnss_block_device, dev_type;
 type pvmfw_block_device, dev_type;
+type rotfw_block_device, dev_type;
+type ise_block_device, dev_type;
 
 ##########################
 # Sensor common Devices Start
@@ -363,6 +365,9 @@ type mobicore_tui_device, dev_type;
 
 # MiTEE device type
 type mitee_client_device, dev_type, mlstrustedobject;
+
+# UFS BSG device type
+type ufs_bsg_device, dev_type;
 
 # teeperf device type
 type teeperf_device, dev_type, mlstrustedobject;

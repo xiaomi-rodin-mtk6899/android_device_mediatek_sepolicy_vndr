@@ -1,10 +1,12 @@
 # NFC
 vendor.nxp.nxpnfc_aidl.INxpNfc/default u:object_r:hal_nfc_service:s0
 
+# Neural Networks
 android.hardware.neuralnetworks.IDevice/mtk-gpu_shim    u:object_r:hal_neuralnetworks_service:s0
 android.hardware.neuralnetworks.IDevice/mtk-dsp_shim    u:object_r:hal_neuralnetworks_service:s0
 android.hardware.neuralnetworks.IDevice/mtk-mdla_shim   u:object_r:hal_neuralnetworks_service:s0
 android.hardware.neuralnetworks.IDevice/mtk-neuron_shim u:object_r:hal_neuralnetworks_service:s0
+vendor.mediatek.hardware.neuropilot.neuronservice.INeuronService/default u:object_r:hal_neuralnetworks_service:s0
 
 #mmlpq aidl
 vendor.mediatek.hardware.mmlpq.IMmlpq/default u:object_r:mtk_hal_mmlpq_service:s0
@@ -31,10 +33,14 @@ vendor.mediatek.hardware.camera.aovservice.IAovService/default u:object_r:hal_ca
 vendor.mediatek.hardware.camera.atms.IATMs/default u:object_r:hal_camera_service:s0
 vendor.mediatek.hardware.camera.bgservice.IBGService/default u:object_r:hal_camera_service:s0
 vendor.mediatek.hardware.camera.isphal.IISPModule/internal/1 u:object_r:hal_camera_service:s0
+vendor.mediatek.hardware.camera.postproc.IPostDevice/default u:object_r:hal_camera_service:s0
 vendor.mediatek.hardware.camera.uievent.IUIEvent/default u:object_r:hal_camera_service:s0
 
 # MMAgent
 vendor.mediatek.hardware.mmagent.IMMAgent/default u:object_r:mtk_hal_mmagent_service:s0
+
+# MMS
+vendor.mediatek.hardware.mms.IMms/default u:object_r:mtk_hal_mms_service:s0
 
 # GNSS
 vendor.mediatek.hardware.gnss.IMtkGnss/default u:object_r:hal_gnss_service:s0
@@ -98,3 +104,7 @@ vendor.mediatek.hardware.lbs.ILbs/mtk_agps2gnssAidl        u:object_r:mtk_hal_lb
 #Data: 2023/03/22
 #add MTK GPU Extra AIDL
 vendor.mediatek.hardware.gpuserv.IGpuService/default u:object_r:mtk_hal_gpuserv_service:s0
+
+# Trustonic
+vendor.trustonic.tee.ITee/default           u:object_r:hal_tee_service:s0
+vendor.trustonic.tui.ITui/default           u:object_r:hal_tee_service:s0
