@@ -31,8 +31,6 @@ persist.vendor.radio.gprs.attach.type u:object_r:system_mtk_gprs_attach_type_pro
 
 persist.vendor.mtk_rcs_single_reg_support u:object_r:system_mtk_rcs_single_reg_support_prop:s0
 
-persist.vendor.pco5.radio.ctrl u:object_r:system_mtk_pco_prop:s0
-
 vendor.ril.test.poweroffmd u:object_r:system_mtk_power_off_md_prop:s0
 vendor.ril.testmode        u:object_r:system_mtk_power_off_md_prop:s0
 
