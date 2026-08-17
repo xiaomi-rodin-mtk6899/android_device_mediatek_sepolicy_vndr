@@ -139,7 +139,6 @@
 /dev/ampc0(/.*)?    u:object_r:ampc0_device:s0
 /dev/android(/.*)?  u:object_r:android_device:s0
 
-/dev/block/zram0       u:object_r:swap_block_device:s0
 /dev/block/by-name/otp u:object_r:otp_part_block_device:s0
 
 /dev/bmtpool(/.*)? u:object_r:bmtpool_device:s0
@@ -926,7 +925,6 @@
 
 # MiTEE devices
 /dev/0:0:0:49476    u:object_r:teei_rpmb_device:s0
-/dev/metis          u:object_r:mitee_client_device:s0
 /dev/tee0           u:object_r:mitee_client_device:s0
 /dev/teepriv0       u:object_r:mitee_client_device:s0
 
