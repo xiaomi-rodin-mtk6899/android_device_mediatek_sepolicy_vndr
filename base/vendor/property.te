@@ -35,6 +35,7 @@ vendor_internal_prop(vendor_mtk_ctl_volte_ua_prop)
 #=============allow volte md status deamon  ==============
 vendor_internal_prop(vendor_mtk_md_status_prop)
 vendor_internal_prop(vendor_trustonic_prop)
+vendor_internal_prop(vendor_dynamic_sensor_prop)
 
 # Properties which can't be written outside vendor
 vendor_restricted_prop(vendor_mtk_aal_ro_prop)
@@ -251,6 +252,7 @@ vendor_restricted_prop(vendor_mtk_ril_vote_prop)
 vendor_restricted_prop(vendor_mtk_backlight_ro_prop)
 vendor_restricted_prop(vendor_mtk_mml_support_prop)
 vendor_restricted_prop(vendor_mtk_dc_call_prop)
+vendor_restricted_prop(vendor_mtk_ise_prop)
 
 # Properties with no restriction
 vendor_public_prop(vendor_mtk_sec_video_path_support_prop)

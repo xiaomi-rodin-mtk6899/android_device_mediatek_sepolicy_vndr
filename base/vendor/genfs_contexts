@@ -308,6 +308,7 @@ genfscon sysfs /power/vcorefs/opp_table   u:object_r:sysfs_vcore_debug:s0
 # Purpose : MTK Vibrator
 genfscon sysfs /devices/platform/odm/odm:vibrator@0/leds/vibrator              u:object_r:sysfs_vibrator:s0
 genfscon sysfs /devices/platform/soc/soc:regulator_vibrator/leds/vibrator      u:object_r:sysfs_vibrator:s0
+genfscon sysfs /devices/platform/soc/soc:regulator-vibrator/leds/vibrator      u:object_r:sysfs_vibrator:s0
 genfscon sysfs /devices/platform/soc/soc:pwm_leds/leds/lcd-backlight           u:object_r:sysfs_leds:s0
 genfscon sysfs /devices/platform/soc/soc:mtk_leds/leds/lcd-backlight           u:object_r:sysfs_leds:s0
 genfscon sysfs /devices/platform/soc/soc:mtk-leds/leds/lcd-backlight           u:object_r:sysfs_leds:s0
@@ -316,6 +317,7 @@ genfscon sysfs /devices/platform/mtk-leds/leds/lcd-backlight                   u
 genfscon sysfs /devices/platform/mtk_leds/leds/lcd-backlight                   u:object_r:sysfs_leds:s0
 genfscon sysfs /devices/platform/i2c_leds/leds/lcd-backlight                   u:object_r:sysfs_leds:s0
 genfscon sysfs /devices/platform/regulator_vibrator/leds/vibrator              u:object_r:sysfs_vibrator:s0
+genfscon sysfs /devices/platform/regulator-vibrator/leds/vibrator              u:object_r:sysfs_vibrator:s0
 genfscon sysfs /devices/platform/leds-mt65xx/leds                              u:object_r:sysfs_leds:s0
 genfscon sysfs /devices/platform/pwmleds/leds                                  u:object_r:sysfs_leds:s0
 genfscon sysfs /devices/platform/disp_leds/leds                                u:object_r:sysfs_leds:s0
@@ -747,6 +749,7 @@ genfscon proc /mtk_mdp_debug u:object_r:proc_mtk_mdp_debug:s0
 # AudioManager/WiredAccessoryManager, extcon uevents
 genfscon sysfs /devices/platform/14800000.dp_tx/extcon u:object_r:sysfs_extcon:s0
 genfscon sysfs /devices/platform/extcon-usb                u:object_r:sysfs_extcon:s0
+genfscon sysfs /devices/platform/extcon_usb                u:object_r:sysfs_extcon:s0
 genfscon sysfs /devices/platform/soc/11c50000.dp-tx/extcon u:object_r:sysfs_extcon:s0
 genfscon sysfs /devices/platform/soc/soc:extcon_usb/extcon u:object_r:sysfs_extcon:s0
 
@@ -764,12 +767,19 @@ genfscon proc /mgq u:object_r:proc_mgq:s0
 genfscon sysfs /kernel/thunderquake_engine    u:object_r:sysfs_vibrator:s0
 
 # GPU
-genfscon sysfs /devices/platform/13000000.mali/dma_buf_gpu_mem u:object_r:sysfs_gpu:s0
-genfscon sysfs /devices/platform/13000000.mali/kprcs u:object_r:sysfs_gpu:s0
-genfscon sysfs /devices/platform/13000000.mali/total_gpu_mem u:object_r:sysfs_gpu:s0
-genfscon sysfs /devices/platform/13040000.mali/dma_buf_gpu_mem u:object_r:sysfs_gpu:s0
-genfscon sysfs /devices/platform/13040000.mali/kprcs u:object_r:sysfs_gpu:s0
-genfscon sysfs /devices/platform/13040000.mali/total_gpu_mem u:object_r:sysfs_gpu:s0
+genfscon sysfs /devices/platform/13000000.mali/dma_buf_gpu_mem           u:object_r:sysfs_gpu:s0
+genfscon sysfs /devices/platform/13000000.mali/dvfs_period               u:object_r:sysfs_gpu:s0
+genfscon sysfs /devices/platform/13000000.mali/js_ctx_scheduling_mode    u:object_r:sysfs_gpu:s0
+genfscon sysfs /devices/platform/13000000.mali/js_scheduling_period      u:object_r:sysfs_gpu:s0
+genfscon sysfs /devices/platform/13000000.mali/kprcs                     u:object_r:sysfs_gpu:s0
+genfscon sysfs /devices/platform/13000000.mali/total_gpu_mem             u:object_r:sysfs_gpu:s0
+
+genfscon sysfs /devices/platform/13040000.mali/dma_buf_gpu_mem           u:object_r:sysfs_gpu:s0
+genfscon sysfs /devices/platform/13040000.mali/dvfs_period               u:object_r:sysfs_gpu:s0
+genfscon sysfs /devices/platform/13040000.mali/js_ctx_scheduling_mode    u:object_r:sysfs_gpu:s0
+genfscon sysfs /devices/platform/13040000.mali/js_scheduling_period      u:object_r:sysfs_gpu:s0
+genfscon sysfs /devices/platform/13040000.mali/kprcs                     u:object_r:sysfs_gpu:s0
+genfscon sysfs /devices/platform/13040000.mali/total_gpu_mem             u:object_r:sysfs_gpu:s0
 
 # IRQ
 genfscon sysfs /kernel/irq          u:object_r:sysfs_irq:s0
