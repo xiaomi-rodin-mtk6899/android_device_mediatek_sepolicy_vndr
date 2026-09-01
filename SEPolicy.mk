@@ -1,7 +1,7 @@
 # Board specific SELinux policy variable definitions
 MTK_SEPOLICY_PATH := device/mediatek/sepolicy_vndr
 
-include device/lineage/sepolicy/libperfmgr/sepolicy.mk
+include device/xperience/sepolicy/libperfmgr/sepolicy.mk
 
 BOARD_VENDOR_SEPOLICY_DIRS += $(MTK_SEPOLICY_PATH)/base/vendor
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(MTK_SEPOLICY_PATH)/base/private
