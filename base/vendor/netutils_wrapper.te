@@ -13,6 +13,7 @@ allow netutils_wrapper netdagent:unix_stream_socket { read write };
 allow netutils_wrapper rild:fd use;
 allow netutils_wrapper rild:unix_stream_socket { read write };
 allow netutils_wrapper rild:fifo_file rw_file_perms;
+allow netutils_wrapper rild:netlink_netfilter_socket  { read write };
 
 allow netutils_wrapper wo_epdg_client:unix_stream_socket { read write };
 allow netutils_wrapper wo_epdg_client:fd use;
