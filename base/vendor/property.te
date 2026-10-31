@@ -69,6 +69,7 @@ vendor_restricted_prop(vendor_mtk_graphics_hwc_hdr_prop)
 vendor_restricted_prop(vendor_mtk_graphics_hwc_pid_prop)
 vendor_restricted_prop(vendor_mtk_graphics_hwc_validate_separate_prop)
 vendor_restricted_prop(vendor_mtk_graphics_hwc_latch_unsignaled_prop)
+vendor_restricted_prop(vendor_mtk_graphics_hwc_video_mode_prop)
 vendor_restricted_prop(vendor_mtk_gsm0710muxd_prop)
 vendor_restricted_prop(vendor_mtk_hdmi_prop)
 vendor_restricted_prop(vendor_mtk_imstestmode_prop)
@@ -84,6 +85,7 @@ vendor_restricted_prop(vendor_mtk_nn_option_prop)
 vendor_restricted_prop(vendor_mtk_gbe_prop)
 vendor_restricted_prop(vendor_mtk_nvram_ready_prop)
 vendor_restricted_prop(vendor_mtk_omx_log_prop)
+vendor_restricted_prop(vendor_mtk_omx_x_ray_prop)
 vendor_restricted_prop(vendor_mtk_operator_id_prop)
 vendor_restricted_prop(vendor_mtk_persist_service_atci_prop)
 vendor_restricted_prop(vendor_mtk_pq_prop)
@@ -96,7 +98,9 @@ vendor_restricted_prop(vendor_mtk_ril_ipo_prop)
 vendor_restricted_prop(vendor_mtk_ril_mode_prop)
 vendor_restricted_prop(vendor_mtk_ril_mux_report_case_prop)
 vendor_restricted_prop(vendor_mtk_service_nvram_init_prop)
+vendor_restricted_prop(vendor_mtk_service_nvram_first_restore_prop)
 vendor_restricted_prop(vendor_mtk_service_nvram_restore_prop)
+vendor_restricted_prop(vendor_mtk_service_nvram_load_prop)
 vendor_restricted_prop(vendor_mtk_service_wifi_nvram_prop)
 vendor_restricted_prop(vendor_mtk_service_connxo_nvram_prop)
 vendor_restricted_prop(vendor_mtk_simswitch_emmode_prop)
@@ -110,6 +114,7 @@ vendor_restricted_prop(vendor_mtk_usb_otg_switch_prop)
 vendor_restricted_prop(vendor_mtk_usb_prop)
 vendor_restricted_prop(vendor_mtk_c2_log_prop)
 vendor_restricted_prop(vendor_mtk_vdec_log_prop)
+vendor_restricted_prop(vendor_mtk_vdecomx_hdr_type_prop)
 vendor_restricted_prop(vendor_mtk_vdectlc_log_prop)
 vendor_restricted_prop(vendor_mtk_venc_h264_showlog_prop)
 vendor_restricted_prop(vendor_mtk_voicerecgnize_prop)
@@ -134,6 +139,7 @@ vendor_restricted_prop(vendor_mtk_bt_perf_prop)
 vendor_restricted_prop(vendor_mtk_hwc_debug_log_prop)
 vendor_restricted_prop(vendor_mtk_mdp_debug_log_prop)
 vendor_restricted_prop(vendor_mtk_debug_sf_cpupolicy_prop)
+vendor_restricted_prop(vendor_mtk_debug_sf_kickidle_prop)
 vendor_restricted_prop(vendor_mtk_neuropilot_flag_prop)
 vendor_restricted_prop(vendor_mtk_mdrsra_v2_support_prop)
 vendor_restricted_prop(vendor_mtk_xfrm_support_prop)
@@ -258,7 +264,8 @@ vendor_restricted_prop(vendor_mtk_hwc_prop)
 vendor_restricted_prop(vendor_mtk_hwc_dsi_switch_prop)
 vendor_restricted_prop(vendor_mtk_hwc_boot_display_config_prop)
 vendor_restricted_prop(vendor_mtk_hwc_buffer_hint_prop)
-vendor_restricted_prop(vendor_mtk_debug_sf_kickidle_prop)
+
+vendor_restricted_prop(vendor_mtk_ufs_prop)
 
 # Properties with no restriction
 vendor_public_prop(vendor_mtk_sec_video_path_support_prop)
@@ -302,6 +309,7 @@ typeattribute vendor_mtk_modem_warning_prop          mtk_core_property_type;
 typeattribute vendor_mtk_net_cdma_mdmstat_prop       mtk_core_property_type;
 typeattribute vendor_mtk_nvram_ready_prop            mtk_core_property_type;
 typeattribute vendor_mtk_omx_log_prop                mtk_core_property_type;
+typeattribute vendor_mtk_omx_x_ray_prop              mtk_core_property_type;
 typeattribute vendor_mtk_operator_id_prop            mtk_core_property_type;
 typeattribute vendor_mtk_persist_service_atci_prop   mtk_core_property_type;
 typeattribute vendor_mtk_pq_prop                     mtk_core_property_type;
@@ -323,6 +331,7 @@ typeattribute vendor_mtk_tel_switch_prop             mtk_core_property_type;
 typeattribute vendor_mtk_testsim_cardtype_prop       mtk_core_property_type;
 typeattribute vendor_mtk_usb_otg_switch_prop         mtk_core_property_type;
 typeattribute vendor_mtk_vdec_log_prop               mtk_core_property_type;
+typeattribute vendor_mtk_vdecomx_hdr_type_prop       mtk_core_property_type;
 typeattribute vendor_mtk_vdectlc_log_prop            mtk_core_property_type;
 typeattribute vendor_mtk_venc_h264_showlog_prop      mtk_core_property_type;
 typeattribute vendor_mtk_voicerecgnize_prop          mtk_core_property_type;

@@ -8,6 +8,7 @@ set_prop(vendor_init, vendor_mtk_volte_prop)
 set_prop(vendor_init, vendor_mtk_radio_prop)
 set_prop(vendor_init, vendor_mtk_ril_mode_prop)
 set_prop(vendor_init, vendor_mtk_wmt_prop)
+set_prop(vendor_init, vendor_mtk_video_prop)
 set_prop(vendor_init, vendor_mtk_coredump_prop)
 set_prop(vendor_init, vendor_mtk_atm_mdmode_prop)
 allow vendor_init proc_wmtdbg:file w_file_perms;
@@ -82,6 +83,7 @@ allow vendor_init debugfs_tracing_debug:file w_file_perms;
 
 # Set surfaceflinger cpu policy property
 set_prop(vendor_init, vendor_mtk_debug_sf_cpupolicy_prop)
+set_prop(vendor_init, vendor_mtk_debug_sf_kickidle_prop)
 
 # Date : 2019/11/21
 # Operation: SQC
@@ -113,6 +115,7 @@ allow vendor_init proc_panic_on_rcu_stall:file rw_file_perms;
 # Date : 2020/12/23
 # Purpose: Allow vendor_init to write /proc/driver/conninfra_dbg
 allow vendor_init proc_conninfradbg:file w_file_perms;
+allow vendor_init conn_dbg_dev_device:chr_file w_file_perms;
 
 # Date: 2020/11/18
 # Purpose: Set the vendor.all.modules.ready property

@@ -73,10 +73,12 @@ vendor.sms.md.ready	    u:object_r:vendor_mtk_md_prop:s0
 vendor.debug.factory.idle_state u:object_r:vendor_mtk_factory_idle_state_prop:s0
 
 # nvram daemon
-vendor.service.nvram_init u:object_r:vendor_mtk_service_nvram_init_prop:s0
-vendor.service.nvram_restore u:object_r:vendor_mtk_service_nvram_restore_prop:s0
-vendor.service.wifi_nvram u:object_r:vendor_mtk_service_wifi_nvram_prop:s0
-vendor.service.connxo_nvram.file u:object_r:vendor_mtk_service_connxo_nvram_prop:s0
+vendor.service.nvram_init             u:object_r:vendor_mtk_service_nvram_init_prop:s0
+vendor.service.nvram_first_restore    u:object_r:vendor_mtk_service_nvram_first_restore_prop:s0
+vendor.service.nvram_restore          u:object_r:vendor_mtk_service_nvram_restore_prop:s0
+vendor.service.nvram_load             u:object_r:vendor_mtk_service_nvram_load_prop:s0
+vendor.service.wifi_nvram             u:object_r:vendor_mtk_service_wifi_nvram_prop:s0
+vendor.service.connxo_nvram.file      u:object_r:vendor_mtk_service_connxo_nvram_prop:s0
 
 # Camera APP Mode
 vendor.client. u:object_r:vendor_mtk_em_prop:s0
@@ -120,8 +122,10 @@ vendor.mtk.c2   u:object_r:vendor_mtk_c2_log_prop:s0
 
 # video log omx.* property
 vendor.mtk.omx. u:object_r:vendor_mtk_omx_log_prop:s0
+vendor.mtk.omx.x_ray. u:object_r:vendor_mtk_omx_x_ray_prop:s0
 
 vendor.mtk.vdec.log u:object_r:vendor_mtk_vdec_log_prop:s0
+vendor.vdecomx.hdr-type u:object_r:vendor_mtk_vdecomx_hdr_type_prop:s0
 
 vendor.mtk.vdectlc.log u:object_r:vendor_mtk_vdectlc_log_prop:s0
 
@@ -164,6 +168,7 @@ vendor.debug.sf.hwc_pid           u:object_r:vendor_mtk_graphics_hwc_pid_prop:s0
 vendor.debug.sf.hdr_enable        u:object_r:vendor_mtk_graphics_hwc_hdr_prop:s0
 vendor.debug.sf.validate_separate u:object_r:vendor_mtk_graphics_hwc_validate_separate_prop:s0
 vendor.debug.sf.latch_unsignaled  u:object_r:vendor_mtk_graphics_hwc_latch_unsignaled_prop:s0
+vendor.hwc.video_mode             u:object_r:vendor_mtk_graphics_hwc_video_mode_prop:s0
 
 # sf vendor cpupolicy config
 vendor.debug.sf.cpupolicy  u:object_r:vendor_mtk_debug_sf_cpupolicy_prop:s0
@@ -171,6 +176,9 @@ vendor.debug.sf.cpupolicy. u:object_r:vendor_mtk_debug_sf_cpupolicy_prop:s0
 
 # sf fbt cache hint config. Use same permission rule as sf cpupolicy
 vendor.debug.sf.fbthint u:object_r:vendor_mtk_debug_sf_cpupolicy_prop:s0
+
+# sf vendor kickidle config
+vendor.debug.sf.kickidle. u:object_r:vendor_mtk_debug_sf_kickidle_prop:s0
 
 # atm modem mode property(ATM)
 persist.vendor.atm.mdmode u:object_r:vendor_mtk_atm_mdmode_prop:s0
@@ -332,6 +340,7 @@ vendor.debug.gpu.  u:object_r:vendor_mtk_gpu_prop:s0
 vendor.debug.gpud. u:object_r:vendor_mtk_gpu_prop:s0
 vendor.mali. u:object_r:vendor_mtk_gpu_prop:s0
 persist.vendor.debug.gpud. u:object_r:vendor_mtk_gpu_prop:s0
+persist.vendor.debug.gpu.  u:object_r:vendor_mtk_gpu_prop:s0
 ro.vendor.game_aisr_enable u:object_r:vendor_mtk_gpu_prop:s0
 ro.vendor.mtk.gpu. u:object_r:vendor_mtk_gpu_prop:s0
 ro.vendor.arm. u:object_r:vendor_mtk_gpu_prop:s0
@@ -359,6 +368,10 @@ ro.vendor.input.touch_report_rate u:object_r:vendor_mtk_input_report_rate_prop:s
 # video property
 vendor.mtkomx.color.convert u:object_r:vendor_mtk_video_prop:s0
 vendor.mtk.c2.vdec.fmt.disabled.whitelist u:object_r:vendor_mtk_video_prop:s0
+ro.vendor.mtk_crossmount_support u:object_r:vendor_mtk_video_prop:s0
+ro.vendor.mtk_crossmount.maxcount u:object_r:vendor_mtk_video_prop:s0
+ro.vendor.mtk_deinterlace_support u:object_r:vendor_mtk_video_prop:s0
+ro.vendor.mtk_hdr_video_support u:object_r:vendor_mtk_video_prop:s0
 
 # config no bt multidevice performance according to chip
 ro.vendor.bluetooth.bt_multidevice_perform u:object_r:vendor_mtk_default_prop:s0
@@ -758,6 +771,8 @@ ro.vendor.mtk_trustonic_tee_support   u:object_r:vendor_mtk_trustonic_tee_prop:s
 ro.vendor.mtk_microtrust_tee_support  u:object_r:vendor_mtk_microtrust_tee_prop:s0
 ro.vendor.mtk_trustkernel_tee_support u:object_r:vendor_mtk_trustkernel_tee_prop:s0
 
+vendor.mtk.ufs.                       u:object_r:vendor_mtk_ufs_prop:s0
+
 vendor.teefs_state                    u:object_r:vendor_mtk_mitee_prop:s0
 ro.boot.tee_type                      u:object_r:vendor_mtk_mitee_prop:s0
 ro.vendor.mtk_mitee_support           u:object_r:vendor_mtk_mitee_prop:s0
@@ -830,4 +845,3 @@ vendor.mtk.ise. u:object_r:vendor_mtk_ise_prop:s0
 vendor.mtk.hwc.                                  u:object_r:vendor_mtk_hwc_prop:s0
 ro.vendor.mtk_hwc_dsi_switch                     u:object_r:vendor_mtk_hwc_dsi_switch_prop:s0
 persist.vendor.hwcomposer.boot_display_config.   u:object_r:vendor_mtk_hwc_boot_display_config_prop:s0
-vendor.debug.sf.kickidle.                        u:object_r:vendor_mtk_debug_sf_kickidle_prop:s0

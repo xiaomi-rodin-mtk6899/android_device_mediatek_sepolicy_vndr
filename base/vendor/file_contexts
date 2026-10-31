@@ -130,6 +130,9 @@
 # Purpose: mtk hmp info file
 /data/vendor/hmp(/.*)?        u:object_r:data_vendor_hmp_file:s0
 
+# OP-TEE
+/data/vendor/tee(/.*)?    u:object_r:tee_data_file:s0
+
 ##########################
 # Devices
 #
@@ -176,6 +179,8 @@
 /dev/camera-rsc(/.*)?     u:object_r:camera_rsc_device:s0
 /dev/camera-gepf(/.*)?    u:object_r:camera_gepf_device:s0
 /dev/camera-wpe(/.*)?     u:object_r:camera_wpe_device:s0
+/dev/vpp-wpe-a(/.*)?      u:object_r:camera_wpe_device:s0
+/dev/vpp-wpe-b(/.*)?      u:object_r:camera_wpe_device:s0
 /dev/camera-owe(/.*)?     u:object_r:camera_owe_device:s0
 /dev/camera-mfb(/.*)?     u:object_r:camera_mfb_device:s0
 /dev/camera-pda(/.*)?     u:object_r:camera_pda_device:s0
@@ -466,6 +471,7 @@
 
 /dev/stpant(/.*)?   u:object_r:stpant_device:s0
 /dev/stpbt(/.*)?    u:object_r:stpbt_device:s0
+/dev/connsys_bt     u:object_r:connsys_bt_state_device:s0
 /dev/fw_log_bt      u:object_r:fw_log_bt_device:s0
 /dev/fw_log_btmcu   u:object_r:fw_log_btmcu_device:s0
 
@@ -480,6 +486,7 @@
 
 /dev/stpwmt(/.*)?        u:object_r:stpwmt_device:s0
 /dev/conninfra_dev(/.*)? u:object_r:conninfra_device:s0
+/dev/conn_dbg_dev(/.*)?  u:object_r:conn_dbg_dev_device:s0
 /dev/sw_sync(/.*)?       u:object_r:sw_sync_device:s0
 /dev/tgt(/.*)?           u:object_r:tgt_device:s0
 /dev/touch(/.*)?         u:object_r:touch_device:s0
@@ -524,6 +531,7 @@
 /dev/conn_pwr_dev(/.*)?      u:object_r:conn_pwr_device:s0
 /dev/conn_scp(/.*)?       u:object_r:conn_scp_device:s0
 /dev/wmtWifi(/.*)?        u:object_r:wmtWifi_device:s0
+/dev/connsys_wifi        u:object_r:connsys_wifi_device:s0
 /dev/ancservice(/.*)?     u:object_r:ancservice_device:s0
 /dev/offloadservice(/.*)? u:object_r:offloadservice_device:s0
 /dev/audio_ipi(/.*)?      u:object_r:audio_ipi_device:s0
@@ -547,7 +555,6 @@
 /dev/nebula-ipc-dev0   u:object_r:tee_device:s0
 /dev/trustzone         u:object_r:tee_device:s0
 /dev/mbim              u:object_r:mbim_device:s0
-/dev/alarm(/.*)?       u:object_r:alarm_device:s0
 /dev/radio(/.*)?       u:object_r:mtk_radio_device:s0
 /dev/mml_pq     u:object_r:mml_pq_device:s0
 
@@ -710,6 +717,7 @@
 /dev/block/by-name/rot_boot_fw(_[ab])?              u:object_r:rotfw_block_device:s0
 /dev/block/by-name/rot_boot_fmc(_[ab])?             u:object_r:rotfw_block_device:s0
 /dev/block/by-name/ise(_[ab])?                      u:object_r:ise_block_device:s0
+/dev/block/by-name/emiupfw(_[ab])?                  u:object_r:emiupfw_block_device:s0
 
 # W19.23 Q new feature - Userdata Checkpoint
 /dev/block/by-name/md_udc u:object_r:metadata_block_device:s0
@@ -794,6 +802,9 @@
 /dev/block/by-name/preloader_raw_b                     u:object_r:postinstall_block_device:s0
 /dev/block/platform/bootdevice/by-name/preloader_raw_a u:object_r:postinstall_block_device:s0
 /dev/block/platform/bootdevice/by-name/preloader_raw_b u:object_r:postinstall_block_device:s0
+
+# MiTEE devices
+/dev/metis          u:object_r:mitee_client_device:s0
 
 ##########################
 # Vendor files
@@ -883,37 +894,49 @@
 /(vendor|system/vendor)/bin/hw/(mt[0-9]+[a-z]*/)?android\.hardware\.graphics\.allocator-V[0-9]+-service-mediatek(\.mt[0-9]+[a-z]*)? u:object_r:hal_graphics_allocator_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.media\.c2@1\.2-mediatek                   u:object_r:mtk_hal_c2_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.media\.c2@1\.2-mediatek-64b               u:object_r:mtk_hal_c2_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.media\.c2-mediatek                        u:object_r:mtk_hal_c2_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.media\.c2-mediatek-64b                    u:object_r:mtk_hal_c2_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.memtrack-service\.mediatek                u:object_r:mtk_hal_memtrack_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.mediatek\.hardware\.mtkcodecservice@1\.1-service     u:object_r:hal_mtkcodecservice_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.health-service\.mediatek                  u:object_r:hal_health_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.mediatek\.hardware\.gpuserv-service                  u:object_r:mtk_hal_gpuserv_exec:s0
 
-# Google Trusty system files
-/(vendor|system/vendor)/bin/hw/android\.hardware\.keymaster@3\.0-service\.trusty u:object_r:hal_keymaster_default_exec:s0
-
 # gpu hal
 /(system\/vendor|vendor)/bin/hw/vendor\.mediatek\.hardware\.gpu@1\.0-service u:object_r:mtk_hal_gpu_exec:s0
 
-# MTEE keymaster4.0/4.1 system files
-/(vendor|system/vendor)/bin/hw/android\.hardware\.keymaster@4\.0-service\.mtee u:object_r:hal_keymaster_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.keymaster@4\.1-service\.mtee u:object_r:hal_keymaster_default_exec:s0
+# MediaTek In-house TEE
+/(vendor|system/vendor)/bin/hw/android\.hardware\.keymaster@4\.[0-9]+-service\.mtee    u:object_r:hal_keymaster_default_exec:s0
 
-# Trustonic TEE
-/(vendor|system/vendor)/bin/hw/android\.hardware\.security\.keymint(@[0-9]+\.0+)?-service\.trustonic(_norkp)? u:object_r:hal_keymint_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.security\.secretkeeper@1\.0-service\.trustonic              u:object_r:hal_secretkeeper_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.gatekeeper-service\.trustonic u:object_r:hal_gatekeeper_default_exec:s0
+# Microtrust TEE
+/(vendor|system/vendor)/bin/hw/android\.hardware\.gatekeeper-service\.beanpod                     u:object_r:hal_gatekeeper_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.identity-service\.beanpod                       u:object_r:hal_identity_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.keymaster@4\.[0-9]+-service\.beanpod            u:object_r:hal_keymaster_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.security\.keymint@[0-9]+\.0-service\.beanpod    u:object_r:hal_keymint_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.security\.secretkeeper@1\.0-service\.beanpod    u:object_r:hal_secretkeeper_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.microtrust\.hardware\.capi@2\.0-service                    u:object_r:teei_hal_capi_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.microtrust\.hardware\.ifaa@[0-9]+\.0-service               u:object_r:teei_hal_ifaa_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.microtrust\.hardware\.se@1\.0-service                      u:object_r:hal_secure_element_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.microtrust\.hardware\.soter@1\.0-service                   u:object_r:teei_hal_wechat_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.microtrust\.hardware\.thh@2\.0-service                     u:object_r:teei_hal_thh_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.microtrust\.hardware\.tui@2\.0-service                     u:object_r:teei_hal_tui_exec:s0
+/(vendor|system/vendor)/bin/bp_kmsetkey_ca                                                        u:object_r:bp_kmsetkey_ca_exec:s0
+/(vendor|system/vendor)/bin/init_thh                                                              u:object_r:init_thh_service_exec:s0
+/(vendor|system/vendor)/bin/teei_daemon                                                           u:object_r:tee_exec:s0
 
-# Trustkernel
-/(vendor|system/vendor)/bin/hw/android\.hardware\.security\.keymint(@[0-9]+\.0+)?-service\.trustkernel u:object_r:hal_keymint_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android.hardware.gatekeeper-service.trustkernel u:object_r:hal_gatekeeper_default_exec:s0
+# Microtrust TEE Lite
+/(vendor|system/vendor)/bin/hw/android\.hardware\.gatekeeper@1\.0-service\.beanpod\.lite        u:object_r:hal_gatekeeper_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.gatekeeper@1\.0-service\.itrusty              u:object_r:hal_gatekeeper_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.keymaster@4\.[0-9]+-service\.beanpod\.lite    u:object_r:hal_keymaster_default_exec:s0
+/(vendor|system/vendor)/bin/istorageproxyd                                                      u:object_r:tee_exec:s0
+/(vendor|system/vendor)/bin/teei_loader                                                         u:object_r:tee_exec:s0
 
 # MiTEE
-/(vendor|system/vendor)/bin/hw/android\.hardware\.gatekeeper-service\.mitee               u:object_r:hal_gatekeeper_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.identity-service\.mitee@5.0             u:object_r:hal_identity_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.keymaster@4\.0-service\.mitee           u:object_r:hal_keymaster_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.security\.keymint@3.0-service\.mitee    u:object_r:hal_keymint_default_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.xiaomi\.hardware\.secure_element-service           u:object_r:hal_secure_element_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.gatekeeper-service\.mitee                     u:object_r:hal_gatekeeper_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.identity-service\.mitee@5.0                   u:object_r:hal_identity_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.keymaster@4\.0-service\.mitee                 u:object_r:hal_keymaster_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.security\.keymint@[0-9]+\.0-service\.mitee    u:object_r:hal_keymint_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.security\.secretkeeper\.mitee                 u:object_r:hal_secretkeeper_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.xiaomi\.hardware\.secure_element-service                 u:object_r:hal_secure_element_default_exec:s0
 
 # MiTEE system files
 /(vendor|system/vendor)/bin/tee-supplicant     u:object_r:tee_exec:s0
@@ -928,21 +951,44 @@
 /dev/tee0           u:object_r:mitee_client_device:s0
 /dev/teepriv0       u:object_r:mitee_client_device:s0
 
-# UFS
-/dev/ufs-bsg0       u:object_r:ufs_bsg_device:s0
-
 # NXP StrongBox
 /(vendor|system/vendor)/bin/hw/android\.hardware\.security\.keymint-service\.strongbox\.nxp     u:object_r:hal_keymint_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.security\.keymint3-service\.strongbox\.nxp    u:object_r:hal_keymint_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.weaver-service\.nxp                           u:object_r:hal_weaver_default_exec:s0
 
+# OP-TEE
+/(vendor|system/vendor)/bin/hw/android\.hardware\.keymaster@4\.0-service\.optee           u:object_r:hal_keymaster_default_exec:s0
+
+# TrustKernel TEE
+/(vendor|system/vendor)/app/t6(/.*)?                                                                      u:object_r:tkcore_systa_file:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.gatekeeper-service\.trustkernel                         u:object_r:hal_gatekeeper_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.keymaster@4\.[0-9]+-service\.trustkernel                u:object_r:hal_keymaster_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.security\.keymint(@[0-9]+\.0+)?-service\.trustkernel    u:object_r:hal_keymint_default_exec:s0
+/(vendor|system/vendor)/bin/teed                                                                          u:object_r:tee_exec:s0
+
+# Trustonic TEE
+/(vendor|system/vendor)/app/mcRegistry(/.*)?                                                                            u:object_r:mobicore_vendor_file:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.gatekeeper-service\.trustonic                                         u:object_r:hal_gatekeeper_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.keymaster@[0-9]+\.[0-9]+-service\.trustonic                           u:object_r:hal_keymaster_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.security\.keymint(@[0-9]+\.0+)?-service\.trustonic(_norkp|_rkpv2)?    u:object_r:hal_keymint_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.security\.secretkeeper@1\.0-service\.trustonic                        u:object_r:hal_secretkeeper_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.trustonic\.tee(@1\.1)?-service                                                   u:object_r:hal_tee_default_exec:s0
+/(vendor|system/vendor)/bin/mcDriverDaemon                                                                              u:object_r:mobicore_exec:s0
+
+# Trusty TEE
+/(vendor|system/vendor)/bin/hw/android\.hardware\.keymaster@3\.0-service\.trusty             u:object_r:hal_keymaster_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.mediatek\.hardware\.security\.secretkeeper\.trusty    u:object_r:hal_secretkeeper_default_exec:s0
+/(vendor|system/vendor)/bin/mtk_storageproxyd                                                u:object_r:tee_exec:s0
+/(vendor|system/vendor)/bin/rpmb_svc                                                         u:object_r:tee_exec:s0
+/(vendor|system/vendor)/bin/storageproxyd                                                    u:object_r:tee_exec:s0
+
+# UFS
+/dev/ufs-bsg0       u:object_r:ufs_bsg_device:s0
+
 # Thermal
 /vendor/bin/thermal_logd_mediatek     u:object_r:init-thermal-logging-sh_exec:s0
 /vendor/bin/thermal_symlinks_mediatek u:object_r:init-thermal-symlinks-sh_exec:s0
 /dev/thermal(/.*)?                    u:object_r:thermal_link_device:s0
-
-# Microtrust SE
-/(vendor|system/vendor)/bin/hw/vendor\.microtrust\.hardware\.se@1\.0-service   u:object_r:hal_secure_element_default_exec:s0
 
 # PQ hal
 /(vendor|system/vendor)/bin/hw/vendor\.mediatek\.hardware\.pq@2\.2-service u:object_r:mtk_hal_pq_exec:s0
@@ -1042,20 +1088,6 @@
 # Purpose : DBReleasePlan
 /(odm|vendor/odm|vendor)/bin/crossbuild(/.*)? u:object_r:vendor_bin_crossbuild_file:s0
 
-# TrustKernel add
-/(vendor|system/vendor)/bin/hw/android\.hardware\.keymaster@4\.0-service\.trustkernel u:object_r:hal_keymaster_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.keymaster@4\.1-service\.trustkernel u:object_r:hal_keymaster_default_exec:s0
-
-# Trustonic TEE
-/(vendor|system/vendor)/bin/hw/android\.hardware\.keymaster@3\.0-service\.trustonic u:object_r:hal_keymaster_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.keymaster@4\.0-service\.trustonic u:object_r:hal_keymaster_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.keymaster@4\.1-service\.trustonic u:object_r:hal_keymaster_default_exec:s0
-
-# Trustonic TEE system files
-/(vendor|system/vendor)/app/mcRegistry(/.*)?                       u:object_r:mobicore_vendor_file:s0
-/(vendor|system/vendor)/bin/mcDriverDaemon                         u:object_r:mobicore_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.trustonic\.tee(@1\.1)?-service u:object_r:hal_tee_default_exec:s0
-
 /(vendor|system/vendor)/bin/thermal                                               u:object_r:thermal_exec:s0
 /(vendor|system/vendor)/bin/volte_rcs_ua                                          u:object_r:volte_rcs_ua_exec:s0
 /(vendor|system/vendor)/bin/volte_rcs_ua64                                        u:object_r:volte_rcs_ua_exec:s0
@@ -1102,35 +1134,7 @@
 # MTK PPL
 /(vendor|system/vendor)/bin/ppl_agent u:object_r:ppl_agent_exec:s0
 
-# Microtrust TEEI system files
-/(vendor|system/vendor)/bin/init_thh    u:object_r:init_thh_service_exec:s0
-/(vendor|system/vendor)/bin/teei_daemon u:object_r:tee_exec:s0
-
-# microtrust THH daemon
-/(vendor|system/vendor)/bin/hw/vendor\.microtrust\.hardware\.thh@2\.0-service u:object_r:teei_hal_thh_exec:s0
-
-# microtrust TUI daemon
-/(vendor|system/vendor)/bin/hw/vendor\.microtrust\.hardware\.tui@2\.0-service u:object_r:teei_hal_tui_exec:s0
-
-# microtrust IFAA hidl service
-/(vendor|system/vendor)/bin/hw/vendor\.microtrust\.hardware\.ifaa@1\.0-service u:object_r:teei_hal_ifaa_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.microtrust\.hardware\.ifaa@2\.0-service u:object_r:teei_hal_ifaa_exec:s0
-
-# microtrust WECHAT hidl service
-/(vendor|system/vendor)/bin/hw/vendor\.microtrust\.hardware\.soter@1\.0-service          u:object_r:teei_hal_wechat_exec:s0
-/(vendor|system/vendor)/bin/teei_loader                                                  u:object_r:tee_exec:s0
-/(vendor|system/vendor)/bin/istorageproxyd                                               u:object_r:tee_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.microtrust\.hardware\.capi@2\.0-service           u:object_r:teei_hal_capi_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.keymaster@4\.0-service\.beanpod        u:object_r:hal_keymaster_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.keymaster@4\.0-service\.beanpod\.lite  u:object_r:hal_keymaster_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.keymaster@4\.1-service\.beanpod        u:object_r:hal_keymaster_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.keymaster@4\.1-service\.beanpod\.lite  u:object_r:hal_keymaster_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.security\.keymint@1\.0-service\.beanpod u:object_r:hal_keymint_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.gatekeeper@1\.0-service\.beanpod\.lite u:object_r:hal_gatekeeper_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.gatekeeper@1\.0-service\.itrusty u:object_r:hal_gatekeeper_default_exec:s0
-/(vendor|system/vendor)/bin/bp_kmsetkey_ca u:object_r:bp_kmsetkey_ca_exec:s0
-
-/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerrpint@1\.1-service              u:object_r:hal_fingerprint_default_exec:s0
+# MTK neural network HAL
 /(vendor|system/vendor)/bin/hw/android\.hardware\.neuralnetworks@1\.3-service-gpunn                 u:object_r:mtk_hal_neuralnetworks_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.neuralnetworks@1\.3-service-mtk-neuron            u:object_r:mtk_hal_neuralnetworks_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.neuralnetworks@1\.3-service-mtk-neuron-lazy       u:object_r:mtk_hal_neuralnetworks_exec:s0
@@ -1178,18 +1182,8 @@
 # DMC Packet Monitor (PKM)
 /vendor/bin/mtk_pkm_service u:object_r:mtk_pkm_service_exec:s0
 
-# TrustKernel add
-/vendor/bin/teed u:object_r:tee_exec:s0
-
-# For Google Trusty Secure Storage Proxy
-/vendor/bin/storageproxyd u:object_r:tee_exec:s0
-/(vendor|system/vendor)/bin/rpmb_svc u:object_r:tee_exec:s0
-/vendor/bin/mtk_storageproxyd u:object_r:tee_exec:s0
-
 # MTK MDM
 /vendor/bin/md_monitor u:object_r:md_monitor_exec:s0
-
-/vendor/app/t6(/.*)? u:object_r:tkcore_systa_file:s0
 
 ##########################
 # same-process HAL files and their dependencies
@@ -1260,6 +1254,8 @@
 /vendor/lib(64)?/mtk_cache\.so                     u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/arm\.graphics-ndk_platform\.so    u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/mt[0-9]+[a-z]*/arm\.graphics-ndk_platform\.so    u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/mt[0-9]+\/libmtk_mali_user\.so    u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/vendor\.mediatek\.hardware\.graphics-V[0-9]+-ndk\.so u:object_r:same_process_hal_file:s0
 
 /vendor/lib(64)?/hw/android\.hardware\.graphics\.allocator@4\.0-impl-mediatek\.so             u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/hw/mt[0-9]+[a-z]*/android\.hardware\.graphics\.allocator@4\.0-impl-mediatek\.so u:object_r:same_process_hal_file:s0
@@ -1274,6 +1270,8 @@
 /vendor/lib(64)?/vendor\.mediatek\.hardware\.mmlpq-V[0-9]+-ndk\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libdpframework\.so                               u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/mt[0-9]+[a-z]*/libdpframework\.so                u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/libteec\.so                                      u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/libtz_uree\.so                                   u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libpq_cust\.so                                   u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libpq_cust_base\.so                              u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/mt[0-9]+[a-z]*/libpq_cust_base\.so               u:object_r:same_process_hal_file:s0
@@ -1285,6 +1283,7 @@
 /vendor/lib(64)?/libhdrvideo\.so                                  u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libscltm\.so                                     u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libaal_mtk\.so                                   u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/libaal_sec\.so                                   u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/mt[0-9]+[a-z]*/libmml\.so                        u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libmmlpqImpl\.so                                  u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libpqhdrmetaparser\.so                           u:object_r:same_process_hal_file:s0
@@ -1303,6 +1302,7 @@
 
 /vendor/lib(64)?/libladder\.so u:object_r:same_process_hal_file:s0
 
+/vendor/lib(64)?/libapusys\.so                  u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libtflite_mtk.so               u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libnir_neon_driver_ndk.mtk.vndk\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libcmdl_ndk.mtk.vndk\.so       u:object_r:same_process_hal_file:s0
@@ -1404,6 +1404,7 @@
 # Power
 /(vendor|system/vendor)/bin/hw/android\.hardware\.power-service\.mediatek-libperfmgr      u:object_r:hal_power_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.mediatek\.hardware\.mtkpower@1\.2-service\.stub    u:object_r:mtk_hal_power_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.mediatek\.hardware\.mtkpower-service\.stub         u:object_r:mtk_hal_power_exec:s0
 
 # Memtrack
 /(vendor|system/vendor)/bin/hw/android\.hardware\.memtrack-service\.mediatek-mali         u:object_r:hal_memtrack_default_exec:s0
@@ -1460,3 +1461,10 @@
 
 # iSE app loader
 /(vendor|system/vendor)/bin/ise_apploader   u:object_r:ise_apploader_exec:s0
+
+# Virtual Machines
+/dev/pkvm_vendor_mtk_tz                                                                    u:object_r:pkvm_mtk_tz_device:s0
+/vendor/bin/hw/android.hardware.virtualization.capabilities.capabilities_service-mtk_tz    u:object_r:hal_vm_capabilities_default_exec:s0
+
+# Vendor Firmwares
+/(vendor|system/vendor)/firmware(/.*)?                        u:object_r:vendor_fw_file:s0

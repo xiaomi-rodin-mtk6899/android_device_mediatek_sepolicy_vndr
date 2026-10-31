@@ -51,6 +51,7 @@ type proc_log_much, fs_type, proc_type;
 type proc_irq, fs_type, proc_type;
 type proc_c2ps, fs_type, proc_type;
 type proc_curr_cpu_loading, fs_type, proc_type;
+type proc_battery_cmd, fs_type, proc_type;
 
 #For icusb
 type proc_icusb, fs_type, proc_type;
@@ -783,3 +784,6 @@ type volte_stack_socket, file_type;
 type wfca_socket, file_type;
 type bip_socket, file_type;
 type vendor_bip_socket, file_type;
+
+# Vendor Firmwares
+type vendor_fw_file, vendor_file_type, file_type;

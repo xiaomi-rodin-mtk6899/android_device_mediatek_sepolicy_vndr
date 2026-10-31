@@ -53,6 +53,7 @@ allow tee tkcore_protect_data_file:file { create_file_perms link };
 
 # UFS
 allow tee ufs_bsg_device:chr_file rw_file_perms;
+set_prop(tee, vendor_mtk_ufs_prop)
 
 # MiTee
 allow tee proc_mitee_log:file r_file_perms;
@@ -92,7 +93,7 @@ allow tee proc_tkcore:file rw_file_perms;
 allow tee proc_tkcore:dir search;
 
 allow tee bootdevice_block_device:blk_file rw_file_perms;
-allowxperm tee bootdevice_block_device:blk_file ioctl { MMC_IOC_MULTI_CMD UFS_IOCTL_RPMB};
+allowxperm tee bootdevice_block_device:blk_file ioctl { MMC_IOCTLCMD MMC_IOC_MULTI_CMD UFS_IOCTL_RPMB};
 allow tee tee_data_file:dir create_dir_perms;
 
 # Allow TEE to manage eSE
@@ -100,3 +101,9 @@ allow tee nfc_device:chr_file rw_file_perms;
 
 # Allow TEE to read iSE properties
 get_prop(tee, vendor_mtk_ise_prop)
+
+# tee-supplicant tries to rmdir its non-empty storage directory
+dontaudit tee vendor_data_file:dir { write remove_name };
+
+# Handle wake locks
+wakelock_use(tee)
